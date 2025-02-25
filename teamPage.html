@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فريق - Championship Champion DLS</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
         body {
             font-family: 'Cairo', sans-serif;
             background: #1a237e; /* أزرق داكن */
-            color: #fff; /* أبيض */
+            color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,14 +21,14 @@
         }
 
         .team-container {
-            background-color: rgba(255, 255, 255, 0.1); /* أبيض شفاف */
+            background-color: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             width: 100%;
             max-width: 800px;
-            border: 1px solid rgba(255, 255, 255, 0.2); /* أبيض شفاف */
+            border: 1px solid rgba(255, 255, 255, 0.2);
             animation: fadeIn 1s ease-in-out;
         }
 
@@ -36,89 +38,114 @@
         }
 
         .header-box {
-            background: rgba(255, 255, 255, 0.1); /* أبيض شفاف */
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2); /* أبيض شفاف */
-            margin-bottom: 30px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            margin-bottom: 10px;
         }
 
         h2 {
-            color: #ffffff; /* أبيض */
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
             margin-bottom: 20px;
-            font-size: 28px;
-            font-weight: bold;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        p {
-            font-size: 18px;
-            margin: 10px 0;
-            color: #e0e0e0; /* أبيض فاتح */
         }
 
         .team-info {
-            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            font-size: 22px;
+        }
+
+        .team-info p {
+            margin: 0;
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 0 1px 4px rgba(255, 255, 255, 0.3);
+        }
+
+        .team-info span {
+            color: #ffeb3b;
+            font-weight: bold;
+            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.2);
+        }
+
+        /* ✅ الخط الفاصل باللون الأبيض مع تأثير إضاءة */
+        .divider {
+            width: 100%;
+            height: 6px;
+            border-radius: 10px;
+            background: white;
+            margin: 40px 0;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.9),
+                        0 0 30px rgba(255, 255, 255, 0.6),
+                        0 0 45px rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .divider:hover {
+            box-shadow: 0 0 25px rgba(255, 255, 255, 1),
+                        0 0 40px rgba(255, 255, 255, 0.9),
+                        0 0 60px rgba(255, 255, 255, 0.7);
+            transform: scale(1.03);
+        }
+
+        h3 {
+            font-size: 26px;
+            font-weight: 600;
+            color: #ffffff;
+            text-shadow: 0 2px 5px rgba(255, 255, 255, 0.3);
+            margin-bottom: 15px;
         }
 
         table {
             width: 100%;
-            margin-top: 20px;
             border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             overflow: hidden;
-            background-color: rgba(255, 255, 255, 0.1); /* أبيض شفاف */
+            color: #ffffff;
         }
 
         th, td {
             padding: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2); /* أبيض شفاف */
+            border: 1px solid rgba(255, 255, 255, 0.2);
             text-align: center;
+            font-size: 18px;
+            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.2);
         }
 
         th {
-            background-color: rgba(255, 255, 255, 0.2); /* أبيض شفاف */
-            font-size: 18px;
+            background-color: rgba(255, 255, 255, 0.2);
             font-weight: bold;
-            color: #ffffff; /* أبيض */
         }
 
         tr:nth-child(even) {
-            background-color: rgba(255, 255, 255, 0.05); /* أبيض شفاف */
-        }
-
-        tr:nth-child(odd) {
-            background-color: rgba(255, 255, 255, 0.1); /* أبيض شفاف */
+            background-color: rgba(255, 255, 255, 0.05);
         }
 
         tr:hover {
-            background-color: rgba(255, 255, 255, 0.2); /* أبيض شفاف */
+            background-color: rgba(255, 255, 255, 0.2);
             transition: background-color 0.3s ease;
         }
 
         .logout-btn {
-            margin-top: 20px;
+            margin-top: 30px;
             padding: 12px 30px;
-            font-size: 18px;
-            background-color: #ff5252; /* أحمر */
+            font-size: 20px;
+            background-color: #ff5252;
             color: white;
             border: none;
             border-radius: 10px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            font-weight: bold;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         .logout-btn:hover {
-            background-color: #ff1744; /* أحمر داكن عند التحويم */
-        }
-
-        .footer {
-            margin-top: 40px;
-            font-size: 16px;
-            color: #ffffff; /* أبيض */
-            opacity: 0.8;
+            background-color: #ff1744;
         }
     </style>
 </head>
@@ -127,11 +154,14 @@
         <div class="header-box">
             <h2>مرحبا بك في فريقك!</h2>
             <div class="team-info">
-                <p id="teamName" style="font-size: 30px; font-weight: bold;"></p>
+                <p id="teamName"></p>
                 <p id="teamPoints"></p>
                 <p>المباراة التالية: <span id="playTime"></span></p>
             </div>
         </div>
+
+        <!-- ✅ الخط الفاصل الأبيض الواضح -->
+        <div class="divider"></div>
 
         <h3>جدول المباريات</h3>
         <table>
@@ -146,23 +176,19 @@
             <tbody id="matchesTable"></tbody>
         </table>
 
-        <!-- زر تسجيل الخروج -->
         <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
     </div>
 
     <script>
-        // التأكد من تسجيل الدخول وإعادة التوجيه إذا لم يتم
         window.onload = function() {
             const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
             if (!loggedInUser) {
                 window.location.href = "index.html";
             } else {
-                // عرض تفاصيل الفريق
                 document.getElementById("teamName").textContent = `اسم الفريق: ${loggedInUser.teamName}`;
                 document.getElementById("teamPoints").textContent = `النقاط: ${loggedInUser.points}`;
                 document.getElementById("playTime").textContent = loggedInUser.playTime || "غير محدد";
 
-                // عرض جدول المباريات
                 const matchesTable = document.getElementById("matchesTable");
                 loggedInUser.matches.forEach(match => {
                     const row = document.createElement("tr");
@@ -177,7 +203,6 @@
             }
         };
 
-        // دالة تسجيل الخروج
         function logout() {
             localStorage.removeItem("loggedInUser");
             window.location.href = "index.html";
