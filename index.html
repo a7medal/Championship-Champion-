@@ -35,13 +35,12 @@
         }
 
         .input-container {
-            position: relative;
             width: 100%;
             margin-bottom: 20px;
         }
 
-        input[type="text"], input[type="password"] {
-            width: 100%;
+        input[type="text"], input[type="password"], input[type="submit"] {
+            width: calc(100% - 10px);
             padding: 14px;
             border: none;
             border-radius: 10px;
@@ -58,11 +57,7 @@
         }
 
         input[type="submit"] {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 10px;
-            background-color: #3949ab; /* من ألوان الشعار */
+            background-color: #3949ab;
             color: #fff;
             font-weight: bold;
             font-size: 18px;
@@ -71,7 +66,7 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #1a237e; /* لون آخر من الشعار */
+            background-color: #1a237e;
             transform: scale(1.02);
         }
 
@@ -99,101 +94,92 @@
     <script>
         const teams = [
             { 
-                username: "Cheikh", 
-                password: "Cheikh", 
+                username: "cheikh", 
+                password: "cheikh", 
                 teamName: "Cheikh - Barca", 
                 points: 0, 
                 playTime: "لم يحدد بعد", 
                 matches: [
-                    { opponent: "الفريق 2", date: "2025-02-26", time: "12:00", result: "0-1" },
-                    { opponent: "الفريق 3", date: "2025-02-27", time: "14:00", result: "2-2" }
+                    { opponent: "Abdelwehab - Bayer", date: "2025-02-26", time: "12:00", result: "0-1" },
+                    { opponent: "Cheikhne - Arsenal", date: "2025-02-27", time: "14:00", result: "2-2" }
                 ]
             },
-    { 
-                username: "wehab", 
-                password: "dlschamp1", 
-                teamName: "الفريق 1", 
-                points: 10, 
-                playTime: "12:00", 
-                matches: [
-                    { opponent: "الفريق 2", date: "2025-02-26", time: "12:00", result: "0-1" },
-                    { opponent: "الفريق 3", date: "2025-02-27", time: "14:00", result: "2-2" }
-                ]
-            },
-    { 
-                username: "player1", 
-                password: "dlschamp1", 
-                teamName: "الفريق 1", 
-                points: 10, 
-                playTime: "12:00", 
-                matches: [
-                    { opponent: "الفريق 2", date: "2025-02-26", time: "12:00", result: "0-1" },
-                    { opponent: "الفريق 3", date: "2025-02-27", time: "14:00", result: "2-2" }
-                ]
-            },
-    { 
-                username: "player1", 
-                password: "dlschamp1", 
-                teamName: "الفريق 1", 
-                points: 10, 
-                playTime: "12:00", 
-                matches: [
-                    { opponent: "الفريق 2", date: "2025-02-26", time: "12:00", result: "0-1" },
-                    { opponent: "الفريق 3", date: "2025-02-27", time: "14:00", result: "2-2" }
-                ]
-            },
-    { 
-                username: "player1", 
-                password: "dlschamp1", 
-                teamName: "الفريق 1", 
-                points: 10, 
-                playTime: "12:00", 
-                matches: [
-                    { opponent: "الفريق 2", date: "2025-02-26", time: "12:00", result: "0-1" },
-                    { opponent: "الفريق 3", date: "2025-02-27", time: "14:00", result: "2-2" }
-                ]
-            },
-    
             { 
-                username: "player2", 
-                password: "dlschamp2", 
-                teamName: "الفريق 2", 
-                points: 15, 
+                username: "wehab", 
+                password: "wehab123", 
+                teamName: "Abdelwehab - Bayer", 
+                points: 10, 
+                playTime: "12:00", 
+                matches: [
+                    { opponent: "Cheikh - Barca", date: "2025-02-26", time: "12:00", result: "1-0" },
+                    { opponent: "Mohamed Hamoud - Liver Poul", date: "2025-02-28", time: "16:00", result: "3-1" }
+                ]
+            },
+            { 
+                username: "cheikhne", 
+                password: "cheikhne123", 
+                teamName: "Cheikhne - Arsenal", 
+                points: 7, 
                 playTime: "14:00", 
                 matches: [
-                    { opponent: "الفريق 1", date: "2025-02-26", time: "12:00", result: "1-0" },
-                    { opponent: "الفريق 3", date: "2025-02-28", time: "16:00", result: "3-1" }
-                ]
-            },
-    { 
-                username: "player1", 
-                password: "dlschamp1", 
-                teamName: "الفريق 1", 
-                points: 10, 
-                playTime: "12:00", 
-                matches: [
-                    { opponent: "الفريق 2", date: "2025-02-26", time: "12:00", result: "0-1" },
-                    { opponent: "الفريق 3", date: "2025-02-27", time: "14:00", result: "2-2" }
-                ]
-            },
-    { 
-                username: "player1", 
-                password: "dlschamp1", 
-                teamName: "الفريق 1", 
-                points: 10, 
-                playTime: "12:00", 
-                matches: [
-                    { opponent: "الفريق 2", date: "2025-02-26", time: "12:00", result: "0-1" },
-                    { opponent: "الفريق 3", date: "2025-02-27", time: "14:00", result: "2-2" }
+                    { opponent: "Cheikh - Barca", date: "2025-02-27", time: "14:00", result: "2-2" },
+                    { opponent: "Dibaj - Realmadrid", date: "2025-02-29", time: "18:00", result: "0-3" }
                 ]
             },
             { 
-                username: "admin", 
-                password: "admin123", 
-                teamName: "الإدارة", 
-                points: 0, 
-                playTime: "", 
-                matches: []
+                username: "mohamed", 
+                password: "mohamed123", 
+                teamName: "Mohamed Hamoud - Liver Poul", 
+                points: 5, 
+                playTime: "16:00", 
+                matches: [
+                    { opponent: "Abdelwehab - Bayer", date: "2025-02-28", time: "16:00", result: "1-3" },
+                    { opponent: "benyough - B04", date: "2025-03-01", time: "20:00", result: "0-0" }
+                ]
+            },
+            { 
+                username: "Dibaj", 
+                password: "Dibaj123", 
+                teamName: "Dibaj - Realmadrid", 
+                points: 12, 
+                playTime: "18:00", 
+                matches: [
+                    { opponent: "Cheikhne - Arsenal", date: "2025-02-29", time: "18:00", result: "3-0" },
+                    { opponent: "Cheriv - Paris", date: "2025-03-02", time: "12:00", result: "2-1" }
+                ]
+            },
+            { 
+                username: "Benyoug", 
+                password: "benyough123", 
+                teamName: "benyough - B04", 
+                points: 8, 
+                playTime: "20:00", 
+                matches: [
+                    { opponent: "Mohamed Hamoud - Liver Poul", date: "2025-03-01", time: "20:00", result: "0-0" },
+                    { opponent: "ELHADJ - CITY", date: "2025-03-03", time: "16:00", result: "1-1" }
+                ]
+            },
+            { 
+                username: "cheriv", 
+                password: "cheriv123", 
+                teamName: "Cheriv - Paris", 
+                points: 4, 
+                playTime: "12:00", 
+                matches: [
+                    { opponent: "Dibaj - Realmadrid", date: "2025-03-02", time: "12:00", result: "1-2" },
+                    { opponent: "ELHADJ - CITY", date: "2025-03-04", time: "18:00", result: "0-0" }
+                ]
+            },
+            { 
+                username: "hadj", 
+                password: "hadj123", 
+                teamName: "ELHADJ - CITY", 
+                points: 6, 
+                playTime: "16:00", 
+                matches: [
+                    { opponent: "benyough - B04", date: "2025-03-03", time: "16:00", result: "1-1" },
+                    { opponent: "Cheriv - Paris", date: "2025-03-04", time: "18:00", result: "0-0" }
+                ]
             }
         ];
 
@@ -207,13 +193,9 @@
 
             if (validUser) {
                 errorMessage.textContent = "";
-                alert(`مرحبًا ${username}! تم تسجيل الدخول بنجاح.`);
+                alert(`مرحبًا ${validUser.teamName}! تم تسجيل الدخول بنجاح.`);
                 localStorage.setItem("loggedInUser", JSON.stringify(validUser));
-                if (validUser.username === "admin") {
-                    window.location.href = "adminPage.html";
-                } else {
-                    window.location.href = "teamPage.html";
-                }
+                window.location.href = "teamPage.html";
             } else {
                 errorMessage.textContent = "اسم المستخدم أو كلمة المرور غير صحيحة. حاول مرة أخرى.";
             }
