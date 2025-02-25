@@ -20,15 +20,13 @@
 
         .team-container {
             background-color: rgba(255, 255, 255, 0.1); /* أبيض شفاف */
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.15)); /* تدرج لوني احتياطي */
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px); /* دعم Safari */
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             width: 100%;
             max-width: 800px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2); /* أبيض شفاف */
             animation: fadeIn 1s ease-in-out;
         }
 
@@ -38,18 +36,17 @@
         }
 
         .header-box {
-            background: rgba(255, 255, 255, 0.1);
-            -webkit-backdrop-filter: blur(10px); /* دعم Safari */
+            background: rgba(255, 255, 255, 0.1); /* أبيض شفاف */
             backdrop-filter: blur(10px);
             padding: 20px;
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2); /* أبيض شفاف */
             margin-bottom: 30px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         }
 
         h2 {
-            color: #ffffff;
+            color: #ffffff; /* أبيض */
             margin-bottom: 20px;
             font-size: 28px;
             font-weight: bold;
@@ -59,7 +56,7 @@
         p {
             font-size: 18px;
             margin: 10px 0;
-            color: #e0e0e0;
+            color: #e0e0e0; /* أبيض فاتح */
         }
 
         .team-info {
@@ -72,66 +69,56 @@
             border-collapse: collapse;
             border-radius: 10px;
             overflow: hidden;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.1); /* أبيض شفاف */
         }
 
         th, td {
             padding: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2); /* أبيض شفاف */
             text-align: center;
         }
 
         th {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.2); /* أبيض شفاف */
             font-size: 18px;
             font-weight: bold;
-            color: #ffffff;
+            color: #ffffff; /* أبيض */
         }
 
         tr:nth-child(even) {
-            background-color: rgba(255, 255, 255, 0.05);
+            background-color: rgba(255, 255, 255, 0.05); /* أبيض شفاف */
         }
 
         tr:nth-child(odd) {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.1); /* أبيض شفاف */
         }
 
         tr:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.2); /* أبيض شفاف */
             transition: background-color 0.3s ease;
         }
 
         .logout-btn {
-            margin-top: 30px;
+            margin-top: 20px;
             padding: 12px 30px;
-            background-color: #e53935; /* أحمر */
-            color: #fff;
+            font-size: 18px;
+            background-color: #ff5252; /* أحمر */
+            color: white;
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            font-size: 18px;
             transition: background-color 0.3s ease;
         }
 
         .logout-btn:hover {
-            background-color: #d32f2f;
+            background-color: #ff1744; /* أحمر داكن عند التحويم */
         }
 
-        /* دعم أجهزة iOS */
-        @supports (-webkit-touch-callout: none) {
-            .team-container, .header-box {
-                background-color: rgba(255, 255, 255, 0.2); /* خلفية أوضح لـ iOS */
-            }
-        }
-
-        /* دعم الوضع الداكن */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #0d153a;
-            }
-            .team-container, .header-box {
-                background-color: rgba(255, 255, 255, 0.15);
-            }
+        .footer {
+            margin-top: 40px;
+            font-size: 16px;
+            color: #ffffff; /* أبيض */
+            opacity: 0.8;
         }
     </style>
 </head>
@@ -164,32 +151,30 @@
     </div>
 
     <script>
+        // التأكد من تسجيل الدخول وإعادة التوجيه إذا لم يتم
         window.onload = function() {
             const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
-            // إذا لم يكن هناك مستخدم مسجل، إعادة التوجيه إلى صفحة تسجيل الدخول
             if (!loggedInUser) {
                 window.location.href = "index.html";
-                return;
+            } else {
+                // عرض تفاصيل الفريق
+                document.getElementById("teamName").textContent = `اسم الفريق: ${loggedInUser.teamName}`;
+                document.getElementById("teamPoints").textContent = `النقاط: ${loggedInUser.points}`;
+                document.getElementById("playTime").textContent = loggedInUser.playTime || "غير محدد";
+
+                // عرض جدول المباريات
+                const matchesTable = document.getElementById("matchesTable");
+                loggedInUser.matches.forEach(match => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${match.opponent}</td>
+                        <td>${match.date}</td>
+                        <td>${match.time}</td>
+                        <td>${match.result}</td>
+                    `;
+                    matchesTable.appendChild(row);
+                });
             }
-
-            // عرض تفاصيل الفريق
-            document.getElementById("teamName").textContent = `اسم الفريق: ${loggedInUser.teamName}`;
-            document.getElementById("teamPoints").textContent = `النقاط: ${loggedInUser.points}`;
-            document.getElementById("playTime").textContent = loggedInUser.playTime || "غير محدد";
-
-            // عرض جدول المباريات
-            const matchesTable = document.getElementById("matchesTable");
-            loggedInUser.matches.forEach(match => {
-                const row = document.createElement("tr");
-                row.innerHTML = `
-                    <td>${match.opponent}</td>
-                    <td>${match.date}</td>
-                    <td>${match.time}</td>
-                    <td>${match.result}</td>
-                `;
-                matchesTable.appendChild(row);
-            });
         };
 
         // دالة تسجيل الخروج
