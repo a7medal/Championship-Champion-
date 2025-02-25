@@ -78,7 +78,7 @@
 </head>
 <body>
     <div class="login-container">
-        <h2>تسجيل الدخول - بطولة Championship Champion </h2>
+        <h2>تسجيل الدخول - بطولة Championship Champion DLS</h2>
         <form id="loginForm">
             <div class="input-container">
                 <input type="text" id="username" placeholder="اسم المستخدم" required>
@@ -98,10 +98,11 @@
                 password: "cheikh", 
                 teamName: "Cheikh - Barca", 
                 points: 0, 
-                playTime: "لم يحدد بعد", 
+                playTime: "1 رمضان", 
+                frais: "0 أوقية", 
                 matches: [
-                    { opponent: "Abdelwehab - Bayer", date: "2025-02-26", time: "12:00", result: "0-1" },
-                    { opponent: "Cheikhne - Arsenal", date: "2025-02-27", time: "14:00", result: "2-2" }
+                    { opponent: "Abdelwehab - Bayer", date: "1 رمضان", time: "17h", result: "لم تقام بعد" },
+                    { opponent: "Cheikhne - Arsenal", date: "2025-02-27", time: "14:00", result: "لم تقام بعد" }
                 ]
             },
             { 
@@ -110,6 +111,7 @@
                 teamName: "Abdelwehab - Bayer", 
                 points: 10, 
                 playTime: "12:00", 
+                frais: "0 أوقية", 
                 matches: [
                     { opponent: "Cheikh - Barca", date: "2025-02-26", time: "12:00", result: "1-0" },
                     { opponent: "Mohamed Hamoud - Liver Poul", date: "2025-02-28", time: "16:00", result: "3-1" }
@@ -120,7 +122,8 @@
                 password: "cheikhne123", 
                 teamName: "Cheikhne - Arsenal", 
                 points: 7, 
-                playTime: "14:00", 
+                playTime: "14:00",
+                frais: "50 أوقية", 
                 matches: [
                     { opponent: "Cheikh - Barca", date: "2025-02-27", time: "14:00", result: "2-2" },
                     { opponent: "Dibaj - Realmadrid", date: "2025-02-29", time: "18:00", result: "0-3" }
@@ -132,6 +135,7 @@
                 teamName: "Mohamed Hamoud - Liver Poul", 
                 points: 5, 
                 playTime: "16:00", 
+                frais: "50 أوقية", 
                 matches: [
                     { opponent: "Abdelwehab - Bayer", date: "2025-02-28", time: "16:00", result: "1-3" },
                     { opponent: "benyough - B04", date: "2025-03-01", time: "20:00", result: "0-0" }
@@ -142,7 +146,8 @@
                 password: "Dibaj123", 
                 teamName: "Dibaj - Realmadrid", 
                 points: 12, 
-                playTime: "18:00", 
+                playTime: "18:00",
+                frais: "0 أوقية", 
                 matches: [
                     { opponent: "Cheikhne - Arsenal", date: "2025-02-29", time: "18:00", result: "3-0" },
                     { opponent: "Cheriv - Paris", date: "2025-03-02", time: "12:00", result: "2-1" }
@@ -154,6 +159,7 @@
                 teamName: "benyough - B04", 
                 points: 8, 
                 playTime: "20:00", 
+                frais: "50 أوقية ", 
                 matches: [
                     { opponent: "Mohamed Hamoud - Liver Poul", date: "2025-03-01", time: "20:00", result: "0-0" },
                     { opponent: "ELHADJ - CITY", date: "2025-03-03", time: "16:00", result: "1-1" }
@@ -165,6 +171,7 @@
                 teamName: "Cheriv - Paris", 
                 points: 4, 
                 playTime: "12:00", 
+                frais: "0 أوقية ", 
                 matches: [
                     { opponent: "Dibaj - Realmadrid", date: "2025-03-02", time: "12:00", result: "1-2" },
                     { opponent: "ELHADJ - CITY", date: "2025-03-04", time: "18:00", result: "0-0" }
@@ -175,7 +182,8 @@
                 password: "hadj123", 
                 teamName: "ELHADJ - CITY", 
                 points: 6, 
-                playTime: "16:00", 
+                playTime: "16:00",
+                frais: "50 أوقية", 
                 matches: [
                     { opponent: "benyough - B04", date: "2025-03-03", time: "16:00", result: "1-1" },
                     { opponent: "Cheriv - Paris", date: "2025-03-04", time: "18:00", result: "0-0" }
@@ -197,7 +205,7 @@
                 localStorage.setItem("loggedInUser", JSON.stringify(validUser));
                 window.location.href = "teamPage.html";
             } else {
-                errorMessage.textContent = "اسم المستخدم أو كلمة المرور غير صحيحة. حاول مرة أخرى.";
+                errorMessage.textContent = "اسم المستخدم أو كلمة المرور غير صحيحة. حاول الرجاء التواصل مع لجنة التنظيم.";
             }
         });
     </script>
