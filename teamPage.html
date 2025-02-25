@@ -157,6 +157,7 @@
                 <p id="teamName"></p>
                 <p id="teamPoints"></p>
                 <p>المباراة التالية: <span id="playTime"></span></p>
+                <p>الرسوم: <span id="frais"></span></p>
             </div>
         </div>
 
@@ -188,6 +189,7 @@
                 document.getElementById("teamName").textContent = `اسم الفريق: ${loggedInUser.teamName}`;
                 document.getElementById("teamPoints").textContent = `النقاط: ${loggedInUser.points}`;
                 document.getElementById("playTime").textContent = loggedInUser.playTime || "غير محدد";
+                document.getElementById("frais").textContent = loggedInUser.frais || "0MRU";
 
                 const matchesTable = document.getElementById("matchesTable");
                 loggedInUser.matches.forEach(match => {
