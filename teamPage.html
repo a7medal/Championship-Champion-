@@ -120,6 +120,24 @@
             font-weight: bold;
             color: #ffffff; /* أبيض */
         }
+
+        /* زر تسجيل الخروج */
+        .logout-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #1a237e; /* أزرق داكن */
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #3949ab; /* أزرق فاتح */
+        }
     </style>
 </head>
 <body>
@@ -146,7 +164,8 @@
             <tbody id="matchesTable"></tbody>
         </table>
 
-        
+        <!-- زر تسجيل الخروج -->
+        <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
     </div>
 
     <script>
@@ -170,6 +189,14 @@
             `;
             matchesTable.appendChild(row);
         });
+
+        // وظيفة تسجيل الخروج
+        function logout() {
+            // حذف بيانات المستخدم من localStorage
+            localStorage.removeItem("loggedInUser");
+            // إعادة التوجيه إلى صفحة تسجيل الدخول
+            window.location.href = "index.html";
+        }
     </script>
 </body>
 </html>
