@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!html>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #1a237e, #3949ab); /* ألوان الشعار */
+            background: linear-gradient(135deg, #1a237e, #3949ab);
             color: #fff;
             display: flex;
             justify-content: center;
@@ -74,7 +74,16 @@
             color: #ff6666;
             margin-top: 10px;
         }
-   .logo {
+
+        .logo {
+            width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto 15px;
+            border-radius: 35px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .logo {
     width: 200px; /* حجم اللوجو */
     height: auto;
     display: block;
@@ -86,137 +95,109 @@
 </head>
 <body>
     <div class="login-container">
-    <img src="خطاب تعريفي لمدير تسويق بلون أبيض و برتقالي_20250220_121804_٠٠٠٠.jpg" alt="شعار البطولة" class="logo">
-    <h2>تسجيل الدخول - بطولة Championship Champion DLS</h2>
-    <form id="loginForm">
-        <div class="input-container">
-            <input type="text" id="username" placeholder="اسم المستخدم" required>
-        </div>
-        <div class="input-container">
-            <input type="password" id="password" placeholder="كلمة المرور" required>
-        </div>
-        <input type="submit" value="تسجيل الدخول">
-        <p id="errorMessage" class="error"></p>
-    </form>
-</div>
+        <img src="خطاب تعريفي لمدير تسويق بلون أبيض و برتقالي_20250220_121804_٠٠٠٠.jpg" alt="شعار البطولة" class="logo">
+        <h2>تسجيل الدخول - بطولة Championship Champion DLS</h2>
+        <form id="loginForm">
+            <div class="input-container">
+                <input type="text" id="username" placeholder="اسم المستخدم" required>
+            </div>
+            <div class="input-container">
+                <input type="password" id="password" placeholder="كلمة المرور" required>
+            </div>
+            <input type="submit" value="تسجيل الدخول">
+            <p id="errorMessage" class="error"></p>
+        </form>
+    </div>
 
     <script>
         const teams = [
-            { 
-                username: "cheikh", 
-                password: "cheikh", 
-                teamName: "Cheikh - Barca", 
-                points: 0, 
-                playTime: "1 رمضان", 
+    { 
+        username: "cheikh", password: "cheikh", 
+        teamName: "Cheikh - Barca", teamImage: "barca.png", points: 0,                playTime: "1 رمضان", 
                 frais: "0 أوقية", 
-                matches: [
-                    { opponent: "Abdelwehab - Bayer", date: "1 رمضان", time: "17h", result: "لم تقام بعد" },
-                    { opponent: "Cheikhne - Arsenal", date: "2025-02-27", time: "14:00", result: "لم تقام بعد" }
-                ]
-            },
-            { 
-                username: "wehab", 
-                password: "wehab123", 
-                teamName: "Abdelwehab - Bayer", 
-                points: 10, 
-                playTime: "12:00", 
+        matches: [
+            { opponent: "Round1  Abdelwehab", date: "1 رمضان", time: "17h", result: "-" },
+            { opponent: "-", date: "-", time: "-", result: "-" }
+        ]
+    },
+    { 
+        username: "wehab", password: "wehab123", 
+        teamName: "Abdelwehab - Bayer", teamImage: "bayer.png", points: 0,                playTime: "1 رمضان", 
                 frais: "0 أوقية", 
-                matches: [
-                    { opponent: "Cheikh - Barca", date: "2025-02-26", time: "12:00", result: "1-0" },
-                    { opponent: "Mohamed Hamoud - Liver Poul", date: "2025-02-28", time: "16:00", result: "3-1" }
-                ]
-            },
-            { 
-                username: "cheikhne", 
-                password: "cheikhne123", 
-                teamName: "Cheikhne - Arsenal", 
-                points: 7, 
-                playTime: "14:00",
-                frais: "50 أوقية", 
-                matches: [
-                    { opponent: "Cheikh - Barca", date: "2025-02-27", time: "14:00", result: "2-2" },
-                    { opponent: "Dibaj - Realmadrid", date: "2025-02-29", time: "18:00", result: "0-3" }
-                ]
-            },
-            { 
-                username: "mohamed", 
-                password: "mohamed123", 
-                teamName: "Mohamed Hamoud - Liver Poul", 
-                points: 5, 
-                playTime: "16:00", 
-                frais: "50 أوقية", 
-                matches: [
-                    { opponent: "Abdelwehab - Bayer", date: "2025-02-28", time: "16:00", result: "1-3" },
-                    { opponent: "benyough - B04", date: "2025-03-01", time: "20:00", result: "0-0" }
-                ]
-            },
-            { 
-                username: "Dibaj", 
-                password: "Dibaj123", 
-                teamName: "Dibaj - Realmadrid", 
-                points: 12, 
-                playTime: "18:00",
+        matches: [
+            { opponent: "Round1 Barca", date: "1رمضان", time: "17:00", result: "-" },
+            { opponent: "Round2", date: "-", time: "-", result: "-" }
+        
+        ]
+    },
+    { 
+        username: "cheikhne", password: "cheikhne123", 
+        teamName: "Cheikhne - Arsenal", teamImage: "arsenal.png", points: 0,                playTime: "1 رمضان", 
                 frais: "0 أوقية", 
-                matches: [
-                    { opponent: "Cheikhne - Arsenal", date: "2025-02-29", time: "18:00", result: "3-0" },
-                    { opponent: "Cheriv - Paris", date: "2025-03-02", time: "12:00", result: "2-1" }
-                ]
-            },
-            { 
-                username: "Benyoug", 
-                password: "benyough123", 
-                teamName: "benyough - B04", 
-                points: 8, 
-                playTime: "20:00", 
-                frais: "50 أوقية ", 
-                matches: [
-                    { opponent: "Mohamed Hamoud - Liver Poul", date: "2025-03-01", time: "20:00", result: "0-0" },
-                    { opponent: "ELHADJ - CITY", date: "2025-03-03", time: "16:00", result: "1-1" }
-                ]
-            },
-            { 
-                username: "cheriv", 
-                password: "cheriv123", 
-                teamName: "Cheriv - Paris", 
-                points: 4, 
-                playTime: "12:00", 
-                frais: "0 أوقية ", 
-                matches: [
-                    { opponent: "Dibaj - Realmadrid", date: "2025-03-02", time: "12:00", result: "1-2" },
-                    { opponent: "ELHADJ - CITY", date: "2025-03-04", time: "18:00", result: "0-0" }
-                ]
-            },
-            { 
-                username: "hadj", 
-                password: "hadj123", 
-                teamName: "ELHADJ - CITY", 
-                points: 6, 
-                playTime: "16:00",
+        matches: [
+            { opponent: "Round 1 B04", date: "1رمضان", time: "17:30", result: "-" },
+    ]
+    },
+    { 
+        username: "hadj", password: "hadj123", 
+        teamName: "Hadj -City", teamImage: "city.png", points: 0,                playTime: "1 رمضان", 
                 frais: "50 أوقية", 
-                matches: [
-                    { opponent: "benyough - B04", date: "2025-03-03", time: "16:00", result: "1-1" },
-                    { opponent: "Cheriv - Paris", date: "2025-03-04", time: "18:00", result: "0-0" }
+        matches: [
+            { opponent: "Round 1 Paris", date: "1 رمضان", time: "17:40", result: "-" },
                 ]
-            }
-        ];
+    },
+       { 
+        username: "cheriv", password: "cheriv123", 
+        teamName: "Cheriv - Paris", teamImage: "paris.jpeg", points: 0,                 playTime: "1 رمضان", 
+                frais: "50 أوقية", 
+        matches: [
+            { opponent: "Round 1 City hadj", date: "1 رمضان", time: "17:40", result: "-" },
+                ]
+    },
+    { 
+        username: "benyoug", password: "benyoug123", 
+        teamName: "Mohamed Chenlelly  - B04", teamImage: "B04.png", points: 0,                 playTime: "1 رمضان", 
+                frais: "50 أوقية", 
+        matches: [
+            { opponent: "Round 1 Realmadrid", date: "1 رمضان", time: "17:40", result: "-" },
+                ]
+    },
+     { 
+        username: "mohamed", password: "mohamed123", 
+        teamName: "Mohamed Hamoud - Liver Poul", teamImage: "liverpool.png", points: 0,                playTime: "1 رمضان", 
+                frais: "50 أوقية", 
+        matches: [
+            { opponent: "Round 1 Realmadrid", date: "1 رمضان", time: "17:40", result: "-" },
+                ]
+    },
+     { 
+        username: "dibaj", password: "dibaj123", 
+        teamName: "Ahmed Dibaj - Realmadrid", teamImage: "realmadrid.png", points: 0,
+                         playTime: "1 رمضان", 
+                frais: "0 أوقية", 
+        matches: [
+            { opponent: "Round 1 Mohamed Liverpoul", date: "1 رمضان", time: "17:40", result: "-" },
+                ]
+    },
+];
 
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const username = document.getElementById("username").value.trim();
-            const password = document.getElementById("password").value.trim();
-            const errorMessage = document.getElementById("errorMessage");
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const errorMessage = document.getElementById("errorMessage");
 
-            const validUser = teams.find(team => team.username === username && team.password === password);
+    let validUser = teams.find(team => team.username === username && team.password === password);
 
-            if (validUser) {
-                errorMessage.textContent = "";
-                alert(`مرحبًا ${validUser.teamName}! تم تسجيل الدخول بنجاح.`);
-                localStorage.setItem("loggedInUser", JSON.stringify(validUser));
-                window.location.href = "teamPage.html";
-            } else {
-                errorMessage.textContent = "اسم المستخدم أو كلمة المرور غير صحيحة. حاول الرجاء التواصل مع لجنة التنظيم.";
-            }
-        });
+    if (validUser) {
+        errorMessage.textContent = "";
+        alert(`مرحبًا ${validUser.teamName}! تم تسجيل الدخول بنجاح.`);
+        localStorage.setItem("loggedInUser", JSON.stringify(validUser));
+        window.location.href = "teamPage.html";
+    } else {
+        errorMessage.textContent = "اسم المستخدم أو كلمة المرور غير صحيحة. الرجاء التواصل مع لجنة التنظيم.";
+    }
+});
     </script>
 </body>
 </html>
