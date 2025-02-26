@@ -74,22 +74,31 @@
             color: #ff6666;
             margin-top: 10px;
         }
+   .logo {
+    width: 200px; /* حجم اللوجو */
+    height: auto;
+    display: block;
+    margin: 0 auto 15px; /* توسيط اللوجو مع إضافة مسافة أسفل */
+    border-radius: 35px; /* إضافة حواف مستديرة إن لزم */
+    background-color: rgba(255, 255, 255, 0.2); /* تأثير خفيف */
+}
     </style>
 </head>
 <body>
     <div class="login-container">
-        <h2>تسجيل الدخول - بطولة Championship Champion DLS</h2>
-        <form id="loginForm">
-            <div class="input-container">
-                <input type="text" id="username" placeholder="اسم المستخدم" required>
-            </div>
-            <div class="input-container">
-                <input type="password" id="password" placeholder="كلمة المرور" required>
-            </div>
-            <input type="submit" value="تسجيل الدخول">
-            <p id="errorMessage" class="error"></p>
-        </form>
-    </div>
+    <img src="خطاب تعريفي لمدير تسويق بلون أبيض و برتقالي_20250220_121804_٠٠٠٠.jpg" alt="شعار البطولة" class="logo">
+    <h2>تسجيل الدخول - بطولة Championship Champion DLS</h2>
+    <form id="loginForm">
+        <div class="input-container">
+            <input type="text" id="username" placeholder="اسم المستخدم" required>
+        </div>
+        <div class="input-container">
+            <input type="password" id="password" placeholder="كلمة المرور" required>
+        </div>
+        <input type="submit" value="تسجيل الدخول">
+        <p id="errorMessage" class="error"></p>
+    </form>
+</div>
 
     <script>
         const teams = [
