@@ -5,182 +5,222 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فريق - Championship Champion DLS</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+
+        :root {
+            --dark-blue: #001f3f;
+            --light-blue: #3a86ff;
+            --accent: #ffd700;
+            --white: #ffffff;
+        }
 
         body {
-            font-family: 'Cairo', sans-serif;
-            background: #1a237e;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(45deg, var(--dark-blue) 0%, #00284f 100%);
+            color: var(--white);
             margin: 0;
-            flex-direction: column;
+            min-height: 100vh;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .team-header {
             text-align: center;
-            padding: 20px;
+            padding: 4rem 0 2rem;
+            background: linear-gradient(45deg, rgba(0, 31, 63, 0.9) 0%, rgba(0, 40, 79, 0.9) 100%);
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .team-container {
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        .team-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 750px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: fadeIn 0.8s ease-in-out;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(58, 134, 255, 0.1) 100%);
+            pointer-events: none;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-15px); }
-            to { opacity: 1; transform: translateY(0); }
+        .team-logo {
+            width: 180px;
+            height: 180px;
+            border: 3px solid var(--light-blue);
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 25px rgba(58, 134, 255, 0.3);
+            transition: transform 0.3s ease;
         }
 
-        h2 {
-    font-size: 30px;
-    font-weight: 700;
-    color: #ffffff;
-    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
-    margin-bottom: 20px;
-    margin-top: 170px; /* تحريك العنوان للأسفل */
-}
-
-        .team-info {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            font-size: 22px;
+        .team-logo:hover {
+            transform: scale(1.05);
         }
 
-        .team-info p {
-            margin: 0;
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffffff;
-            text-shadow: 0 1px 4px rgba(255, 255, 255, 0.3);
+        .team-title {
+            font-size: 2.5rem;
+            margin: 0.5rem 0;
+            background: linear-gradient(to right, var(--light-blue), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .team-info span {
-            color: #ffeb3b;
-            font-weight: bold;
-            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.2);
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
 
-         .team-logo {
-    width: 200px; /* حجم الشعار */
-    height: 200px; /* جعله مربعًا للحفاظ على الشكل الدائري */
-    display: block;
-    margin: 0 auto 15px; /* توسيط الصورة مع إضافة مسافة أسفل */
-    border-radius: 50%; /* جعل الصورة دائرية بالكامل */
-    object-fit: cover; /* ضمان ملاءمة الصورة داخل الدائرة */
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); /* إضافة ظل خفيف */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* تأثير عند التحويم */
-}
-
-.team-logo:hover {
-    transform: scale(1.05); /* تكبير بسيط عند التحويم */
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6); /* زيادة الظل عند التحويم */
-}
-
-        .divider {
-            width: 100%;
-            height: 5px;
-            border-radius: 8px;
-            background: white;
-            margin: 35px 0;
-            box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
-            transition: all 0.3s ease-in-out;
+        .stat-card {
+            background: rgba(0, 31, 63, 0.8);
+            border: 1px solid rgba(58, 134, 255, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
         }
 
-        .divider:hover {
-            box-shadow: 0 0 22px rgba(255, 255, 255, 1);
-            transform: scale(1.02);
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(58, 134, 255, 0.2);
         }
 
-        h3 {
-            font-size: 24px;
-            font-weight: 600;
-            color: #ffffff;
-            text-shadow: 0 2px 5px rgba(255, 255, 255, 0.3);
-            margin-bottom: 10px;
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 0.5rem 0;
         }
 
-        table {
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 3rem 0;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .matches-table {
             width: 100%;
             border-collapse: collapse;
-            background-color: rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            overflow: hidden;
-            color: #ffffff;
+            background: rgba(0, 31, 63, 0.8);
         }
 
-        th, td {
-            padding: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+        .matches-table th {
+            background: linear-gradient(45deg, var(--dark-blue) 0%, var(--light-blue) 100%);
+            padding: 1.2rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .matches-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(58, 134, 255, 0.1);
             text-align: center;
-            font-size: 18px;
         }
 
-        th {
-            background-color: rgba(255, 255, 255, 0.15);
-            font-weight: bold;
+        .matches-table tr:last-child td {
+            border-bottom: none;
         }
 
-        tr:nth-child(even) {
-            background-color: rgba(255, 255, 255, 0.06);
-        }
-
-        tr:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-            transition: background-color 0.3s ease;
+        .matches-table tr:hover {
+            background: rgba(58, 134, 255, 0.05);
         }
 
         .logout-btn {
-            margin-top: 25px;
-            padding: 10px 28px;
-            font-size: 18px;
-            background-color: #ff5252;
+            display: block;
+            width: 200px;
+            margin: 2rem auto;
+            padding: 1rem;
+            font-size: 1.1rem;
+            background: linear-gradient(45deg, #ff5252, #ff1744);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: transform 0.3s ease;
             font-weight: bold;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         .logout-btn:hover {
-            background-color: #ff1744;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 82, 82, 0.3);
         }
-       </style>
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .team-title {
+                font-size: 2rem;
+            }
+            
+            .team-logo {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .matches-table th, 
+            .matches-table td {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="team-container">
-        <h2>مرحبا بك في فريقك!</h2>
-        <img id="teamLogo" class="team-logo" src="" alt="شعار الفريق" class="teamlogo">
-        <div class="team-info">
-            <p id="teamName"></p>
-            <p id="teamPoints"></p>
-            <p>المباراة التالية: <span id="playTime"></span></p>
-            <p>الرسوم: <span id="frais"></span></p>
+    <div class="container">
+        <header class="team-header">
+            <img id="teamLogo" class="team-logo" src="" alt="شعار الفريق">
+            <h1 class="team-title" id="teamName"></h1>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="teamPoints"></div>
+                <div class="stat-label">النقاط الحالية</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-value" id="frais"></div>
+                <div class="stat-label">الرسوم المدفوعة</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-value" id="playTime"></div>
+                <div class="stat-label">موعد المباراة التالية</div>
+            </div>
         </div>
 
-        <div class="divider"></div>
-
-        <h3>جدول المباريات</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>المباراة</th>
-                    <th>التاريخ</th>
-                    <th>الوقت</th>
-                    <th>النتيجة</th>
-                </tr>
-            </thead>
-            <tbody id="matchesTable"></tbody>
-        </table>
+        <div class="table-wrapper">
+            <table class="matches-table">
+                <thead>
+                    <tr>
+                        <th>الخصم</th>
+                        <th>التاريخ</th>
+                        <th>الوقت</th>
+                        <th>النتيجة</th>
+                        <th>الحالة</th>
+                    </tr>
+                </thead>
+                <tbody id="matchesTable"></tbody>
+            </table>
+        </div>
 
         <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
     </div>
@@ -193,27 +233,25 @@
                 return;
             }
 
-            document.getElementById("teamName").textContent = `اسم الفريق: ${user.teamName}`;
-            document.getElementById("teamPoints").textContent = `النقاط: ${user.points}`;
-            document.getElementById("playTime").textContent = user.playTime || "غير محدد";
-            document.getElementById("frais").textContent = user.frais || "0MRU";
-
-            // تعيين صورة الفريق
+            // تعيين البيانات الأساسية
+            document.getElementById("teamName").textContent = user.teamName;
             document.getElementById("teamLogo").src = user.teamImage;
+            document.getElementById("teamPoints").textContent = user.points;
+            document.getElementById("frais").textContent = (user.frais || "0") + " MRU";
+            document.getElementById("playTime").textContent = user.playTime || "قريبًا";
 
-            // إضافة المباريات إلى الجدول
+            // تعيين بيانات المباريات
             const matchesTable = document.getElementById("matchesTable");
-            requestAnimationFrame(() => {
-                (user.matches || []).forEach(match => {
-                    const row = document.createElement("tr");
-                    row.innerHTML = `
-                        <td>${match.opponent}</td>
-                        <td>${match.date}</td>
-                        <td>${match.time}</td>
-                        <td>${match.result}</td>
-                    `;
-                    matchesTable.appendChild(row);
-                });
+            (user.matches || []).forEach(match => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${match.opponent}</td>
+                    <td>${match.date}</td>
+                    <td>${match.time}</td>
+                    <td>${match.result || 'لم تلعب بعد'}</td>
+                    <td><span class="match-status">${match.status || 'مقررة'}</span></td>
+                `;
+                matchesTable.appendChild(row);
             });
         });
 
