@@ -1,117 +1,142 @@
-<!html>
+<!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول - Championship Champion DLS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #1a237e, #3949ab);
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .login-container {
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            width: 100%;
-            max-width: 380px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        h2 {
-            font-size: 26px;
-            margin-bottom: 30px;
-        }
-
-        .input-container {
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        input[type="text"], input[type="password"], input[type="submit"] {
-            width: calc(100% - 10px);
-            padding: 14px;
-            border: none;
-            border-radius: 10px;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #fff;
-            font-size: 16px;
-            outline: none;
-            transition: background-color 0.3s ease;
-            box-sizing: border-box;
-        }
-
-        input[type="text"]:focus, input[type="password"]:focus {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-
-        input[type="submit"] {
-            background-color: #3949ab;
-            color: #fff;
-            font-weight: bold;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #1a237e;
-            transform: scale(1.02);
-        }
-
-        .error {
-            color: #ff6666;
-            margin-top: 10px;
-        }
-
-        .logo {
-            width: 200px;
-            height: auto;
-            display: block;
-            margin: 0 auto 15px;
-            border-radius: 35px;
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        .logo {
-    width: 200px; /* حجم اللوجو */
-    height: auto;
-    display: block;
-    margin: 0 auto 15px; /* توسيط اللوجو مع إضافة مسافة أسفل */
-    border-radius: 35px; /* إضافة حواف مستديرة إن لزم */
-    background-color: rgba(255, 255, 255, 0.2); /* تأثير خفيف */
-}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الدخول - Championship Champion DLS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark-blue: #001f3f;
+      --light-blue: #3a86ff;
+      --white: #ffffff;
+    }
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: var(--dark-blue);
+      color: var(--white);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      direction: rtl;
+    }
+    .login-container {
+      background: rgba(0, 31, 63, 0.9);
+      border: 1px solid rgba(58, 134, 255, 0.3);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      padding: 40px;
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+    }
+    .logo {
+      width: 200px;
+      height: auto;
+      display: block;
+      margin: 0 auto 15px;
+      border-radius: 35px;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    h2 {
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+    .input-container {
+      width: 100%;
+      margin-bottom: 20px;
+      text-align: right;
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: calc(100% - 10px);
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      font-size: 16px;
+      outline: none;
+      transition: background-color 0.3s ease;
+      box-sizing: border-box;
+    }
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+    /* تنسيق الزر الخاص بتسجيل الدخول */
+    input[type="submit"] {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(45deg, var(--light-blue), var(--white));
+      color: var(--dark-blue);
+      font-weight: bold;
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    input[type="submit"]:hover {
+      transform: scale(1.05);
+      background: linear-gradient(45deg, var(--white), var(--light-blue));
+    }
+    input[type="submit"]:active {
+      transform: scale(0.98);
+    }
+    .error {
+      color: #ff6666;
+      margin-top: 10px;
+    }
+    /* تنسيق زر الانتقال للصفحة الرئيسية */
+    .home-btn {
+      margin-top: 20px;
+      padding: 14px;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(45deg, var(--light-blue), var(--white));
+      color: var(--dark-blue);
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .home-btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(45deg, var(--white), var(--light-blue));
+    }
+    .home-btn:active {
+      transform: scale(0.98);
+    }
+  </style>
 </head>
 <body>
-    <div class="login-container">
-        <img src="خطاب تعريفي لمدير تسويق بلون أبيض و برتقالي_20250220_121804_٠٠٠٠.jpg" alt="شعار البطولة" class="logo">
-        <h2>تسجيل الدخول - بطولة Championship Champion DLS</h2>
-        <form id="loginForm">
-            <div class="input-container">
-                <input type="text" id="username" placeholder="اسم المستخدم" required>
-            </div>
-            <div class="input-container">
-                <input type="password" id="password" placeholder="كلمة المرور" required>
-            </div>
-            <input type="submit" value="تسجيل الدخول">
-            <p id="errorMessage" class="error"></p>
-        </form>
-    </div>
-
-    <script>
+  <div class="login-container">
+    <img src="خطاب تعريفي لمدير تسويق بلون أبيض و برتقالي_20250220_121804_٠٠٠٠.jpg" alt="شعار البطولة" class="logo">
+    <h2>تسجيل الدخول - بطولة Championship Champion DLS</h2>
+    <form id="loginForm">
+      <div class="input-container">
+        <input type="text" id="username" placeholder="اسم المستخدم" required>
+      </div>
+      <div class="input-container">
+        <input type="password" id="password" placeholder="كلمة المرور" required>
+      </div>
+      <input type="submit" value="تسجيل الدخول">
+      <p id="errorMessage" class="error"></p>
+    </form>
+    <button type="button" class="home-btn" onclick="window.location.href='home.html'">
+      المواصلة الى الصفحة الرئيسية
+    </button>
+  </div>
+  
+  <script>
     const teams = [
-    { 
+      { 
         username: "cheikh", 
         password: "cheikh", 
         teamName: "Cheikh - Barca", 
@@ -120,16 +145,16 @@
         playTime: "1 رمضان", 
         frais: "0 أوقية", 
         matches: [
-            { opponent: "Round1  Abdelwehab", date: "1 رمضان", time: "17h:30", result: "-" },
-            { opponent: "Round 2 Cheriv", date: "2 رمضان", time: "17h:30", result: "-" },
-            { opponent: "Round 3 hadj City", date: "3 رمضان", time: "17h:39", result: "-" },
-            { opponent: "Round 4 Benyough B04", date: "4 رمضان", time: "17h:30", result: "-" },
-            { opponent: "Round 5 Cheikhna", date: "5 رمضان", time: "17h:30", result: "-" },
-            { opponent: "Round 6 Dibaj MADRID", date: "6 رمضان", time: "17H:30", result: "-" },
-            { opponent: "Round 7 Mohamed LiverPol", date: "7 رمضان", time: "17H:30", result: "-" }
+          { opponent: "Round1  Abdelwehab", date: "1 رمضان", time: "17h:30", result: "-" },
+          { opponent: "Round 2 Cheriv", date: "2 رمضان", time: "17h:30", result: "-" },
+          { opponent: "Round 3 hadj City", date: "3 رمضان", time: "17h:39", result: "-" },
+          { opponent: "Round 4 Benyough B04", date: "4 رمضان", time: "17h:30", result: "-" },
+          { opponent: "Round 5 Cheikhna", date: "5 رمضان", time: "17h:30", result: "-" },
+          { opponent: "Round 6 Dibaj MADRID", date: "6 رمضان", time: "17H:30", result: "-" },
+          { opponent: "Round 7 Mohamed LiverPol", date: "7 رمضان", time: "17H:30", result: "-" }
         ]
-    },
-    { 
+      },
+      { 
         username: "wehab", 
         password: "wehab123", 
         teamName: "Abdelwehab - Bayer", 
@@ -138,16 +163,16 @@
         playTime: "1 رمضان", 
         frais: "0 أوقية", 
         matches: [
-            { opponent: "Round1 Barca", date: "1رمضان", time: "17:30", result: "-" },
-            { opponent: "Round2 Benyough B04", date: "2 رمضان", time: "17h:30", result: "-" },
-            { opponent: "Round 3 Cheriv", date: "3 رمضان", time: "17h:30", result: "-" },
-            { opponent: "Round 4 Mohamed Liverpool", date: "4 رمضان", time: "17h:30", result: "-" },
-            { opponent: "Round 5 Dibaj", date: "5 رمضان", time: "17h:30", result: "-" },
-            { opponent: "Round 6 Cheikhna ", date: "6 رمضان", time: "17H:30", result: "-" },
-            { opponent: "Round 7 Hadj City", date: "7 رمضان", time: "17H:30", result: "-" }
+          { opponent: "Round1 Barca", date: "1رمضان", time: "17:30", result: "-" },
+          { opponent: "Round2 Benyough B04", date: "2 رمضان", time: "17h:30", result: "-" },
+          { opponent: "Round 3 Cheriv", date: "3 رمضان", time: "17h:30", result: "-" },
+          { opponent: "Round 4 Mohamed Liverpool", date: "4 رمضان", time: "17h:30", result: "-" },
+          { opponent: "Round 5 Dibaj", date: "5 رمضان", time: "17h:30", result: "-" },
+          { opponent: "Round 6 Cheikhna ", date: "6 رمضان", time: "17H:30", result: "-" },
+          { opponent: "Round 7 Hadj City", date: "7 رمضان", time: "17H:30", result: "-" }
         ]
-    },
-    { 
+      },
+      { 
         username: "cheikhne", 
         password: "cheikhne123", 
         teamName: "Cheikhne - Arsenal", 
@@ -156,16 +181,16 @@
         playTime: "1 رمضان", 
         frais: "0 أوقية", 
         matches: [
-            { opponent: "Round 1  Benyough B04", date: "1رمضان", time: "17:30", result: "-" },
-            { opponent: "Round2 Hamed liverpool", date: "2 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round 3 Hadj City", date: "3 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round 4 Dibaj Madrid", date: "4 رمضان", time: "17h:30", result: "-" },
-            { opponent: "Round 5 Cheikh Barca", date: "5 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round 6 wehab Bayer", date: "6 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round 7 Cheriv", date: "7 رمضان", time: "22:30", result: "-" }
+          { opponent: "Round 1  Benyough B04", date: "1رمضان", time: "17:30", result: "-" },
+          { opponent: "Round2 Hamed liverpool", date: "2 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round 3 Hadj City", date: "3 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round 4 Dibaj Madrid", date: "4 رمضان", time: "17h:30", result: "-" },
+          { opponent: "Round 5 Cheikh Barca", date: "5 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round 6 wehab Bayer", date: "6 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round 7 Cheriv", date: "7 رمضان", time: "22:30", result: "-" }
         ]
-    },
-    { 
+      },
+      { 
         username: "hadj", 
         password: "hadj123", 
         teamName: "Hadj -City", 
@@ -174,16 +199,16 @@
         playTime: "1 رمضان", 
         frais: "50 أوقية", 
         matches: [
-            { opponent: "Round 1 cheriv", date: "1 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round 2 Dibaj Madrid", date: "2 رمضان", time: "22h:30", result: "-" },
-            { opponent: "Round 3 Cheikh", date: "3 رمضان", time: "17h:30", result: "-" },
-            { opponent: "Round 4 Cheikhna ", date: "4 رمضان", time: "22h:30", result: "-" },
-            { opponent: "Round 5 Benyough B04", date: "5 رمضان", time: "22h:30", result: "-" },
-            { opponent: "Round 6 Mohamed Liverpool", date: "6 رمضان", time: "22H:30", result: "-" },
-            { opponent: "Round 7 Abdelwehab", date: "7 رمضان", time: "17H:30", result: "-" }
+          { opponent: "Round 1 cheriv", date: "1 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round 2 Dibaj Madrid", date: "2 رمضان", time: "22h:30", result: "-" },
+          { opponent: "Round 3 Cheikh", date: "3 رمضان", time: "17h:30", result: "-" },
+          { opponent: "Round 4 Cheikhna ", date: "4 رمضان", time: "22h:30", result: "-" },
+          { opponent: "Round 5 Benyough B04", date: "5 رمضان", time: "22h:30", result: "-" },
+          { opponent: "Round 6 Mohamed Liverpool", date: "6 رمضان", time: "22H:30", result: "-" },
+          { opponent: "Round 7 Abdelwehab", date: "7 رمضان", time: "17H:30", result: "-" }
         ]
-    },
-    { 
+      },
+      { 
         username: "cheriv", 
         password: "cheriv123", 
         teamName: "Cheriv - Paris", 
@@ -192,16 +217,16 @@
         playTime: "1 رمضان", 
         frais: "50 أوقية", 
         matches: [
-            { opponent: "Round 1 City hadj", date: "1 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round2 Cheikh", date: "2 رمضان", time: "17h:30", result: "-" },
-            { opponent: "Round 3 Abdelwehab Bayer", date: "3 رمضان", time: "17h:30", result: "-" },
-            { opponent: "Round 4 Dibaj Madrid", date: "4 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round 5 Mohamed LiverPool", date: "5 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round 6 Benyough B04", date: "6 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round 7 Cheikhna", date: "7 رمضان", time: "22:30", result: "-" }
+          { opponent: "Round 1 City hadj", date: "1 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round2 Cheikh", date: "2 رمضان", time: "17h:30", result: "-" },
+          { opponent: "Round 3 Abdelwehab Bayer", date: "3 رمضان", time: "17h:30", result: "-" },
+          { opponent: "Round 4 Dibaj Madrid", date: "4 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round 5 Mohamed LiverPool", date: "5 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round 6 Benyough B04", date: "6 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round 7 Cheikhna", date: "7 رمضان", time: "22:30", result: "-" }
         ]
-    },
-    { 
+      },
+      { 
         username: "benyoug", 
         password: "benyoug123", 
         teamName: "Mohamed Chenlelly  - B04", 
@@ -210,16 +235,16 @@
         playTime: "1 رمضان", 
         frais: "50 أوقية", 
         matches: [
-            { opponent: "Round 1 Cheikhna", date: "1 رمضان", time: "17:30", result: "-" },
-            { opponent: "Round2 Abdelwehab", date: "2 رمضان", time: "17h:30", result: "-" },
-            { opponent: "Round 3 Dibaj Madrid", date: "3 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round 4 Cheikh", date: "4 رمضان", time: "17h:30", result: "-" },
-            { opponent: "Round 5 Hadj City", date: "5 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round 6 Cheriv", date: "6 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round 7 Mohamed LiverPol", date: "7 رمضان", time: "17H:30", result: "-" }
+          { opponent: "Round 1 Cheikhna", date: "1 رمضان", time: "17:30", result: "-" },
+          { opponent: "Round2 Abdelwehab", date: "2 رمضان", time: "17h:30", result: "-" },
+          { opponent: "Round 3 Dibaj Madrid", date: "3 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round 4 Cheikh", date: "4 رمضان", time: "17h:30", result: "-" },
+          { opponent: "Round 5 Hadj City", date: "5 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round 6 Cheriv", date: "6 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round 7 Mohamed LiverPol", date: "7 رمضان", time: "17H:30", result: "-" }
         ]
-    },
-    { 
+      },
+      { 
         username: "mohamed", 
         password: "mohamed123", 
         teamName: "Mohamed Hamoud - Liver Poul", 
@@ -228,16 +253,16 @@
         playTime: "1 رمضان", 
         frais: "50 أوقية", 
         matches: [
-            { opponent: "Round 1 Realmadrid", date: "1 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round2 Cheikhna", date: "2 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round 3 Cheikh", date: "3 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round 4 Abdelwehab", date: "4 رمضان", time: "17h:30", result: "-" },
-            { opponent: "Round 5 Cheriv", date: "5 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round 6 Hadj City", date: "6 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round 7 Benyough", date: "7 رمضان", time: "17H:30", result: "-" }
+          { opponent: "Round 1 Realmadrid", date: "1 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round2 Cheikhna", date: "2 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round 3 Cheikh", date: "3 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round 4 Abdelwehab", date: "4 رمضان", time: "17h:30", result: "-" },
+          { opponent: "Round 5 Cheriv", date: "5 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round 6 Hadj City", date: "6 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round 7 Benyough", date: "7 رمضان", time: "17H:30", result: "-" }
         ]
-    },
-    { 
+      },
+      { 
         username: "dibaj", 
         password: "dibaj123", 
         teamName: "Ahmed Dibaj - Realmadrid", 
@@ -246,34 +271,34 @@
         playTime: "1 رمضان", 
         frais: "0 أوقية", 
         matches: [
-            { opponent: "Round 1 Mohamed Liverpoul", date: "1 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round2 Elhadj", date: "2 رمضان", time: "22h:30", result: "-" },
-            { opponent: "Round 3 Benyough B04", date: "3 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round 4 Cheriv", date: "4 رمضان", time: "22:30", result: "-" },
-            { opponent: "Round 5 Abdelwehab", date: "5 رمضان", time: "17h:30", result: "-" },
-            { opponent: "Round 6 Cheikh", date: "6 رمضان", time: "17H:30", result: "-" },
-            { opponent: "Round 7 Cheikhna", date: "7 رمضان", time: "22:30", result: "-" }
+          { opponent: "Round 1 Mohamed Liverpoul", date: "1 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round2 Elhadj", date: "2 رمضان", time: "22h:30", result: "-" },
+          { opponent: "Round 3 Benyough B04", date: "3 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round 4 Cheriv", date: "4 رمضان", time: "22:30", result: "-" },
+          { opponent: "Round 5 Abdelwehab", date: "5 رمضان", time: "17h:30", result: "-" },
+          { opponent: "Round 6 Cheikh", date: "6 رمضان", time: "17H:30", result: "-" },
+          { opponent: "Round 7 Cheikhna", date: "7 رمضان", time: "22:30", result: "-" }
         ]
-    }
-];
-
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
-    const errorMessage = document.getElementById("errorMessage");
-
-    let validUser = teams.find(team => team.username === username && team.password === password);
-
-    if (validUser) {
+      }
+    ];
+    
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const errorMessage = document.getElementById("errorMessage");
+      
+      let validUser = teams.find(team => team.username === username && team.password === password);
+      
+      if (validUser) {
         errorMessage.textContent = "";
         alert(`مرحبًا ${validUser.teamName}! تم تسجيل الدخول بنجاح.`);
         localStorage.setItem("loggedInUser", JSON.stringify(validUser));
         window.location.href = "teamPage.html";
-    } else {
+      } else {
         errorMessage.textContent = "اسم المستخدم أو كلمة المرور غير صحيحة. الرجاء التواصل مع لجنة التنظيم.";
-    }
-});
-    </script>
+      }
+    });
+  </script>
 </body>
 </html>
