@@ -89,7 +89,7 @@
             text-align: center;
             backdrop-filter: blur(5px);
             transition: all 0.3s ease;
-            cursor: pointer;
+            position: relative;
         }
 
         .stat-card:hover {
@@ -102,26 +102,11 @@
             font-weight: 700;
             color: var(--accent);
             margin: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
         }
 
         .stat-label {
             color: rgba(255, 255, 255, 0.8);
             font-size: 1.1rem;
-        }
-
-        .material-icons {
-            font-size: 1.5rem;
-            color: var(--white);
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-
-        .stat-card:hover .material-icons {
-            opacity: 1;
         }
 
         .table-wrapper {
@@ -178,23 +163,12 @@
             box-shadow: 0 5px 15px rgba(255, 82, 82, 0.3);
         }
 
-        .copy-feedback {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--dark-blue);
-            color: var(--white);
-            padding: 10px 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            animation: fadeOut 2s forwards;
-        }
-
-        @keyframes fadeOut {
-            0% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { opacity: 0; }
+        .copy-icon {
+            cursor: pointer;
+            vertical-align: middle;
+            margin-left: 0.5rem;
+            color: var(--accent);
+            font-size: 1.5rem;
         }
 
         @media (max-width: 768px) {
@@ -237,12 +211,10 @@
                 <div class="stat-label">الرسوم المستحقة</div>
             </div>
 
-            <div class="stat-card" onclick="copyMatchCode()">
-                <div class="stat-value">
-                    <span id="matchCode"></span>
-                    <span class="material-icons">content_copy</span>
-                </div>
-                <div class="stat-label">رمز المباراة التالية</div>
+            <div class="stat-card">
+                <div class="stat-value" id="playTime"></div>
+                <span class="material-icons copy-icon" onclick="copyPlayTime()" title="نسخ">content_copy</span>
+                <br>  <br>  <div class="stat-label">موعد المباراة التالية</div>
             </div>
         </div>
 
@@ -277,7 +249,7 @@
             document.getElementById("teamLogo").src = user.teamImage;
             document.getElementById("teamPoints").textContent = user.points;
             document.getElementById("frais").textContent = (user.frais || "0") + " MRU";
-            document.getElementById("matchCode").textContent = user.matchCode || "N/A";
+            document.getElementById("playTime").textContent = user.playTime || "قريبًا";
 
             // تعيين بيانات المباريات
             const matchesTable = document.getElementById("matchesTable");
@@ -294,21 +266,13 @@
             });
         });
 
-        function copyMatchCode() {
-            const code = document.getElementById('matchCode').textContent;
-            navigator.clipboard.writeText(code).then(() => {
-                showCopyFeedback();
-            }).catch(err => {
-                console.error('Failed to copy:', err);
+        function copyPlayTime() {
+            const playTimeText = document.getElementById("playTime").textContent;
+            navigator.clipboard.writeText(playTimeText).then(() => {
+               // alert("تم نسخ موعد المباراة التالية");
+           // }).catch((err) => {
+          //      alert("فشل نسخ النص");
             });
-        }
-
-        function showCopyFeedback() {
-            const feedback = document.createElement('div');
-            feedback.className = 'copy-feedback';
-            feedback.textContent = 'تم نسخ الرمز بنجاح!';
-            document.body.appendChild(feedback);
-            setTimeout(() => feedback.remove(), 2000);
         }
 
         function logout() {
