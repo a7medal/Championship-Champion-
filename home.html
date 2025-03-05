@@ -1,446 +1,521 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بطولة Championship Champion DLS</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بطولة Championship Champion DLS</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
 
-        :root {
-            --dark-blue: #001f3f;
-            --light-blue: #3a86ff;
-            --white: #ffffff;
-        }
+    :root {
+      --dark-blue: #001f3f;
+      --light-blue: #3a86ff;
+      --white: #ffffff;
+    }
 
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background: var(--dark-blue);
-            color: var(--white);
-            direction: rtl;
-            margin: 0;
-            min-height: 100vh;
-        }
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: var(--dark-blue);
+      color: var(--white);
+      direction: rtl;
+      margin: 0;
+      min-height: 100vh;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
 
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem 0;
-            background: linear-gradient(45deg, var(--dark-blue) 0%, #00284f 100%);
-            border-radius: 1rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem 0;
+      background: linear-gradient(45deg, var(--dark-blue) 0%, #00284f 100%);
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
 
-        .logo {
-            width: 180px;
-            height: auto;
-            display: block;
-            margin: 0 auto 15px;
-            border-radius: 35px;
-            background-color: rgba(255, 255, 255, 0.2);
-        }
+    .logo {
+      width: 180px;
+      height: auto;
+      display: block;
+      margin: 0 auto 15px;
+      border-radius: 35px;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
 
-        h1 {
-            font-size: 2.5rem;
-            margin: 0.5rem 0;
-            background: linear-gradient(to right, var(--light-blue), var(--white));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    h1 {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 2.5rem;
+      margin: 0.5rem 0;
+      background: linear-gradient(to right, var(--light-blue), var(--white));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .round-selector {
-            position: relative;
-            margin: 2rem 0;
-        }
+    .round-selector {
+      position: relative;
+      margin: 2rem 0;
+    }
 
-        select {
-            font-family: 'Tajawal', sans-serif;
-            width: 100%;
-            padding: 1rem;
-            font-size: 1.1rem;
-            border: 2px solid var(--light-blue);
-            border-radius: 12px;
-            background: rgba(58, 134, 255, 0.1);
-            color: var(--white);
-            appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: left 1rem center;
-            background-size: 1.2rem;
-        }
+    select {
+      font-family: 'Tajawal', sans-serif;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      border: 2px solid var(--light-blue);
+      border-radius: 12px;
+      background: rgba(58, 134, 255, 0.1);
+      color: var(--white);
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: left 1rem center;
+      background-size: 1.2rem;
+    }
 
-        .matches-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
+    .matches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
 
-        .match-card {
-            background: rgba(0, 31, 63, 0.8);
-            border: 1px solid rgba(58, 134, 255, 0.3);
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
+    .match-card {
+      background: rgba(0, 31, 63, 0.8);
+      border: 1px solid rgba(58, 134, 255, 0.3);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
 
-        .match-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(58, 134, 255, 0.2);
-        }
+    .match-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(58, 134, 255, 0.2);
+    }
 
-        .teams-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin: 1rem 0;
-        }
+    .teams-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 1rem 0;
+    }
 
-        .team {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex: 1;
-        }
+    .team {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+    }
 
-        .team img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 2px solid var(--light-blue);
-            margin-bottom: 0.5rem;
-            object-fit: cover;
-            background: #fff;
-        }
+    .team img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 2px solid var(--light-blue);
+      margin-bottom: 0.5rem;
+      object-fit: cover;
+      background: #fff;
+      cursor: pointer;
+    }
 
-        .vs {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--light-blue);
-            margin: 0 1rem;
-        }
+    .vs {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--light-blue);
+      margin: 0 1rem;
+    }
 
-        .match-time {
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--light-blue);
-            padding: 0.8rem;
-            border-radius: 8px;
-            background: rgba(58, 134, 255, 0.1);
-        }
+    .match-time {
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--light-blue);
+      padding: 0.8rem;
+      border-radius: 8px;
+      background: rgba(58, 134, 255, 0.1);
+    }
 
-        .table-wrapper {
-            overflow-x: auto;
-            margin-top: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 3rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
 
-        .standings-table {
-            min-width: 800px;
-            width: 100%;
-            background: rgba(0, 31, 63, 0.8);
-            border-collapse: collapse;
-        }
+    .standings-table {
+      min-width: 800px;
+      width: 100%;
+      background: rgba(0, 31, 63, 0.8);
+      border-collapse: collapse;
+    }
 
-        .standings-table th {
-            background: linear-gradient(45deg, var(--dark-blue) 0%, var(--light-blue) 100%);
-            padding: 1.2rem;
-            font-weight: 700;
-            white-space: nowrap;
-        }
+    .standings-table th {
+      background: linear-gradient(45deg, var(--dark-blue) 0%, var(--light-blue) 100%);
+      padding: 1.2rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
 
-        .standings-table td {
-            padding: 1rem;
-            border-bottom: 1px solid rgba(58, 134, 255, 0.1);
-            text-align: center;
-        }
+    .standings-table td {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(58, 134, 255, 0.1);
+      text-align: center;
+    }
 
-        .standings-table tr:last-child td {
-            border-bottom: none;
-        }
+    .standings-table tr:last-child td {
+      border-bottom: none;
+    }
 
-        .standings-table tr:hover {
-            background: rgba(58, 134, 255, 0.05);
-        }
+    .standings-table tr:hover {
+      background: rgba(58, 134, 255, 0.05);
+    }
 
-        .team-logo-table {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid var(--light-blue);
-        }
+    .team-logo-table {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--light-blue);
+      cursor: pointer;
+    }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
+    button {
+      font-family: 'Tajawal', sans-serif;
+    }
 
-            h1 {
-                font-size: 2rem;
-            }
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
 
-            .team img {
-                width: 60px;
-                height: 60px;
-            }
+      h1 {
+        font-size: 2rem;
+      }
 
-            .standings-table th, 
-            .standings-table td {
-                padding: 0.8rem;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+      .team img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .standings-table th, 
+      .standings-table td {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <img class="logo" src="خطاب تعريفي لمدير تسويق بلون أبيض و برتقالي_20250220_121804_٠٠٠٠.jpg" alt="شعار البطولة">
-            <h1>بطولة Championship Champion DLS</h1>
-        </header>
+  <div class="container">
+    <header class="header">
+      <img class="logo" src="خطاب تعريفي لمدير تسويق بلون أبيض و برتقالي_20250220_121804_٠٠٠٠.jpg" alt="شعار البطولة">
+      <h1>بطولة Championship Champion DLS</h1>
+    </header>
 
-        <div class="round-selector">
-            <select id="rounds" onchange="showMatches()">
-                <option value="1"> جولة 1</option>
-                <option value="2">جولة 2</option>
-                <option value="3">جولة 3</option>
-                <option value="4">جولة 4</option>
-                <option value="5">جولة 5</option>
-                <option value="6">جولة 6</option>
-                <option value="7">جولة 7</option>
-            </select>
-        </div>
-
-        <div id="matches" class="matches-grid"></div>
-        <br>
-        <h1>ترتيب النقاط للفرق</h1>
-        <div class="table-wrapper">
-            <table class="standings-table">
-                <thead>
-                    <tr>
-                        <th>الترتيب</th>
-                        <th>الشعار</th>
-                        <th>الفريق</th>
-                        <th>النقاط</th>
-                        <th>الأهداف</th>
-                        <th>لعب</th>
-                        <th>فوز</th>
-                        <th>تعادل</th>
-                        <th>خسارة</th>
-                        <th>فرق الأهداف</th>
-                    </tr>
-                </thead>
-                <tbody id="standings"></tbody>
-            </table>
-        </div>
+    <!-- القائمة لتحديد الجولة -->
+    <div class="round-selector" id="round-selector">
+      <select id="rounds" onchange="showMatches()">
+        <option value="1">جولة 1</option>
+        <option value="2">جولة 2</option>
+        <option value="3">جولة 3</option>
+        <option value="4">جولة 4</option>
+        <option value="5">جولة 5</option>
+        <option value="6">جولة 6</option>
+        <option value="7">جولة 7</option>
+      </select>
     </div>
 
-    <script>
-        // بيانات الفرق الكاملة
-        const teamsData = {
-            "Wehab": {
-                points: 9,
-                goals: 5,
-                played: 4,
-                wins: 2,
-                draws: 1,
-                losses: 1,
-                gf: 0,
-                ga: 0,
-                img: "‪BAYER.png"
-            },
-            "Cheikh": {
-                points: 9,
-                goals: 8,
-                played: 4,
-                wins: 3,
-                draws: 0,
-                losses: 1,
-                gf: 0,
-                ga: 0,
-                img: "Barca.png"
-            },
-            "Benyough": {
-                points: 9,
-                goals: 14,
-                played: 4,
-                wins: 3,
-                draws: 0,
-                losses: 1,
-                gf: 0,
-                ga: 0,
-                img: "B04.png"
-            },
-            "Cheikhna": {
-                points: 6,
-                goals: 6,
-                played: 4,
-                wins: 2,
-                draws: 0,
-                losses: 1,
-                gf: 0,
-                ga: 0,
-                img: "arsenal.png"
-            },
-            "Hammed": {
-                points: 3,
-                goals: 4,
-                played: 4,
-                wins: 1,
-                draws: 0,
-                losses: 2,
-                gf: 0,
-                ga: 0,
-                img: "Liverpool.png"
-            },
-           "Hadj": {
-                points: -4,
-                goals: 0,
-                played: 0,
-                wins: 0,
-                draws: 0,
-                losses: 4,
-                gf: 0,
-                ga: 0,
-                img: "City.png"
-            },
-            "Dibaj": {
-                points: 3,
-                goals: 3,
-                played: 1,
-                wins: 1,
-                draws: 0,
-                losses: 1,
-                gf: 0,
-                ga: 0,
-                img: "Realmadrid.png"
-            },
-            "Cheriv": {
-                points: 4,
-                goals: 4,
-                played: 3,
-                wins: 2,
-                draws: 1,
-                losses: 1,
-                gf: 0,
-                ga: 0,
-                img: "Paris.jpeg"
-            }
-        };
+    <!-- مكان عرض المباريات -->
+    <div id="matches" class="matches-grid"></div>
+    <br>
+    <h1>ترتيب النقاط للفرق</h1>
+    <div class="table-wrapper">
+      <table class="standings-table">
+        <thead>
+          <tr>
+            <th>الترتيب</th>
+            <th>الشعار</th>
+            <th>الفريق</th>
+            <th>النقاط</th>
+            <th>الأهداف</th>
+            <th>لعب</th>
+            <th>فوز</th>
+            <th>تعادل</th>
+            <th>خسارة</th>
+            <th>فرق الأهداف</th>
+          </tr>
+        </thead>
+        <tbody id="standings"></tbody>
+      </table>
+    </div>
+  </div>
 
-        // بيانات المباريات الكاملة
-        const matchesData = {
-            1: [
-                { team1: "Wehab", team2: "Cheikh", time: "0 - 2" },
-                { team1: "Benyough", team2: "Cheikhna", time: "4 - 0" },
-                { team1: "Cheriv", team2: "Hadj", time: "3 - 0" },
-                { team1: "Hammed", team2: "Dibaj", time: "3 - 0" }
-            ],
-            2: [
-                { team1: "Wehab", team2: "Benyough", time: "2 - 1" },
-                { team1: "Cheikh", team2: "Cheriv", time: "2 - 0" },
-                {  team1: "Hammed", team2: "Cheikhna", time: "0 - 3" },
-                { team1: "Hadj", team2: "Dibaj", time: "0 - 3" }
-            ],
-            3: [
-                { team1: "Wehab", team2: "Cheriv", time: "1 - 1" },
-                { team1: "Cheikh", team2: "Hadj", time: "3 - 0" },
-                { team1: "Benyough", team2: "Hammed", time: "5 - 0 " },
-                { team1: "Cheikhna", team2: "Dibaj", time: "22:30" }
-            ],
-            4: [
-                { team1: "Wehab", team2: "Hammed", time: "2 - 1" },
-                { team1: "Cheikh", team2: "Benyough", time: "1 - 4" },
-                { team1: "Cheikhna", team2: "Hadj", time: "3 - 0" },
-                { team1: "Cheriv", team2: "Dibaj", time: "22:30" }
-            ],
-            5: [
-                { team1: "Wehab", team2: "Dibaj", time: "17:30" },
-                { team1: "Cheikh", team2: "Cheikhna", time: "17:30" },
-                { team1: "Benyough", team2: "Hadj", time: "22:30" },
-                { team1: "Cheriv", team2: "Hammed", time: "22:30" }
-            ],
-            6: [
-                { team1: "Wehab", team2: "Cheikhna", time: "17:30" },
-                { team1: "Cheikh", team2: "Dibaj", time: "17:30" },
-                { team1: "Benyough", team2: "Cheriv", time: "22:30" },
-                { team1: "Hammed", team2: "Hadj", time: "22:30" }
-            ],
-            7: [
-                { team1: "Wehab", team2: "Hadj", time: "17:30" },
-                { team1: "Cheikh", team2: "Hammed", time: "17:30" },
-                { team1: "Benyough", team2: "Cheikhna", time: "22:30" },
-                { team1: "Cheikh", team2: "Dibaj", time: "22:30" }
-            ]
-        };
+  <script>
+    // بيانات الفرق
+    const teamsData = {
+      "Wehab": {
+        points: 9,
+        goals: 5,
+        played: 4,
+        wins: 2,
+        draws: 1,
+        losses: 1,
+        gf: 0,
+        ga: 0,
+        img: "‪BAYER.png"
+      },
+      "Cheikh": {
+        points: 9,
+        goals: 8,
+        played: 4,
+        wins: 3,
+        draws: 0,
+        losses: 1,
+        gf: 0,
+        ga: 0,
+        img: "Barca.png"
+      },
+      "Benyough": {
+        points: 9,
+        goals: 14,
+        played: 4,
+        wins: 3,
+        draws: 0,
+        losses: 1,
+        gf: 0,
+        ga: 0,
+        img: "B04.png"
+      },
+      "Cheikhna": {
+        points: 6,
+        goals: 6,
+        played: 4,
+        wins: 2,
+        draws: 0,
+        losses: 1,
+        gf: 0,
+        ga: 0,
+        img: "arsenal.png"
+      },
+      "Hammed": {
+        points: 3,
+        goals: 4,
+        played: 4,
+        wins: 1,
+        draws: 0,
+        losses: 2,
+        gf: 0,
+        ga: 0,
+        img: "Liverpool.png"
+      },
+      "Hadj": {
+        points: -4,
+        goals: 0,
+        played: 0,
+        wins: 0,
+        draws: 0,
+        losses: 4,
+        gf: 0,
+        ga: 0,
+        img: "City.png"
+      },
+      "Dibaj": {
+        points: 3,
+        goals: 3,
+        played: 1,
+        wins: 1,
+        draws: 0,
+        losses: 1,
+        gf: 0,
+        ga: 0,
+        img: "Realmadrid.png"
+      },
+      "Cheriv": {
+        points: 4,
+        goals: 4,
+        played: 3,
+        wins: 2,
+        draws: 1,
+        losses: 1,
+        gf: 0,
+        ga: 0,
+        img: "Paris.jpeg"
+      }
+    };
 
-        function showMatches() {
-            const round = document.getElementById('rounds').value;
-            const matchesContainer = document.getElementById('matches');
-            matchesContainer.innerHTML = '';
+    // بيانات المباريات لكل جولة
+    const matchesData = {
+      1: [
+        { team1: "Wehab", team2: "Cheikh", time: "0 - 2" },
+        { team1: "Benyough", team2: "Cheikhna", time: "4 - 0" },
+        { team1: "Cheriv", team2: "Hadj", time: "3 - 0" },
+        { team1: "Hammed", team2: "Dibaj", time: "3 - 0" }
+      ],
+      2: [
+        { team1: "Wehab", team2: "Benyough", time: "2 - 1" },
+        { team1: "Cheikh", team2: "Cheriv", time: "2 - 0" },
+        { team1: "Hammed", team2: "Cheikhna", time: "0 - 3" },
+        { team1: "Hadj", team2: "Dibaj", time: "0 - 3" }
+      ],
+      3: [
+        { team1: "Wehab", team2: "Cheriv", time: "1 - 1" },
+        { team1: "Cheikh", team2: "Hadj", time: "3 - 0" },
+        { team1: "Benyough", team2: "Hammed", time: "5 - 0" },
+        { team1: "Cheikhna", team2: "Dibaj", time: "22:30" }
+      ],
+      4: [
+        { team1: "Wehab", team2: "Hammed", time: "2 - 1" },
+        { team1: "Cheikh", team2: "Benyough", time: "1 - 4" },
+        { team1: "Cheikhna", team2: "Hadj", time: "3 - 0" },
+        { team1: "Cheriv", team2: "Dibaj", time: "22:30" }
+      ],
+      5: [
+        { team1: "Wehab", team2: "Dibaj", time: "17:30" },
+        { team1: "Cheikh", team2: "Cheikhna", time: "17:30" },
+        { team1: "Benyough", team2: "Hadj", time: "22:30" },
+        { team1: "Cheriv", team2: "Hammed", time: "22:30" }
+      ],
+      6: [
+        { team1: "Wehab", team2: "Cheikhna", time: "17:30" },
+        { team1: "Cheikh", team2: "Dibaj", time: "17:30" },
+        { team1: "Benyough", team2: "Cheriv", time: "22:30" },
+        { team1: "Hammed", team2: "Hadj", time: "22:30" }
+      ],
+      7: [
+        { team1: "Wehab", team2: "Hadj", time: "17:30" },
+        { team1: "Cheikh", team2: "Hammed", time: "17:30" },
+        { team1: "Benyough", team2: "Cheikhna", time: "22:30" },
+        { team1: "Cheikh", team2: "Dibaj", time: "22:30" }
+      ]
+    };
 
-            matchesData[round].forEach(match => {
-                const team1Data = teamsData[match.team1];
-                const team2Data = teamsData[match.team2];
+    // دالة عرض المباريات للجولة المحددة
+    function showMatches() {
+      // عرض قائمة الجولات عند العودة من عرض مباريات فريق معين
+      document.getElementById('round-selector').style.display = 'block';
 
-                const matchCard = document.createElement('div');
-                matchCard.className = 'match-card';
-                matchCard.innerHTML = `
-                    <div class="teams-container">
-                        <div class="team">
-                            <img src="${team1Data.img}" alt="${match.team1}">
-                            <h3>${match.team1}</h3>
-                        </div>
-                        <span class="vs">VS</span>
-                        <div class="team">
-                            <img src="${team2Data.img}" alt="${match.team2}">
-                            <h3>${match.team2}</h3>
-                        </div>
-                    </div>
-                    <div class="match-time">${match.time}</div>
-                `;
-                matchesContainer.appendChild(matchCard);
-            });
-        }
+      const round = document.getElementById('rounds').value;
+      const matchesContainer = document.getElementById('matches');
+      matchesContainer.innerHTML = '';
 
-        function updateStandings() {
-            const standingsBody = document.getElementById('standings');
-            standingsBody.innerHTML = '';
+      matchesData[round].forEach(match => {
+        const team1Data = teamsData[match.team1];
+        const team2Data = teamsData[match.team2];
 
-            // ترتيب الفرق حسب النقاط وإذا تعادلوا، يتم الترتيب حسب عدد الأهداف (الأعلى أولاً)
-            const sortedTeams = Object.entries(teamsData)
-                .sort((a, b) => b[1].points - a[1].points || b[1].goals - a[1].goals);
+        const matchCard = document.createElement('div');
+        matchCard.className = 'match-card';
+        matchCard.innerHTML = `
+          <div class="teams-container">
+            <div class="team">
+              <img src="${team1Data.img}" alt="${match.team1}" onclick="showTeamMatches('${match.team1}')">
+              <h3>${match.team1}</h3>
+            </div>
+            <span class="vs">VS</span>
+            <div class="team">
+              <img src="${team2Data.img}" alt="${match.team2}" onclick="showTeamMatches('${match.team2}')">
+              <h3>${match.team2}</h3>
+            </div>
+          </div>
+          <div class="match-time">${match.time}</div>
+        `;
+        matchesContainer.appendChild(matchCard);
+      });
+    }
 
-            sortedTeams.forEach(([teamName, data], index) => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td><img class="team-logo-table" src="${data.img}" alt="${teamName}"></td>
-                    <td>${teamName}</td>
-                    <td>${data.points}</td>
-                    <td>${data.goals}</td>
-                    <td>${data.played}</td>
-                    <td>${data.wins}</td>
-                    <td>${data.draws}</td>
-                    <td>${data.losses}</td>
-                    <td>${data.gf - data.ga}</td>
-                `;
-                standingsBody.appendChild(row);
-            });
-        }
+    // دالة تحديث جدول الترتيب
+    function updateStandings() {
+      const standingsBody = document.getElementById('standings');
+      standingsBody.innerHTML = '';
 
-        window.onload = () => {
-            showMatches();
-            updateStandings();
-        }
-    </script>
+      // ترتيب الفرق حسب النقاط، وإذا تساوت يتم الترتيب حسب عدد الأهداف
+      const sortedTeams = Object.entries(teamsData)
+        .sort((a, b) => b[1].points - a[1].points || b[1].goals - a[1].goals);
+
+      sortedTeams.forEach(([teamName, data], index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td><img class="team-logo-table" src="${data.img}" alt="${teamName}" onclick="showTeamMatches('${teamName}')"></td>
+          <td>${teamName}</td>
+          <td>${data.points}</td>
+          <td>${data.goals}</td>
+          <td>${data.played}</td>
+          <td>${data.wins}</td>
+          <td>${data.draws}</td>
+          <td>${data.losses}</td>
+          <td>${data.gf - data.ga}</td>
+        `;
+        standingsBody.appendChild(row);
+      });
+    }
+
+    // دالة عرض مباريات فريق معين عبر البحث في جميع الجولات
+    function showTeamMatches(teamName) {
+      // إخفاء قائمة الجولات عند عرض مباريات فريق معين
+      document.getElementById('round-selector').style.display = 'none';
+
+      const matchesContainer = document.getElementById('matches');
+      matchesContainer.innerHTML = '';
+
+      // إنشاء عنوان لعرض المباريات الخاصة بالفريق
+      const header = document.createElement('h2');
+      header.style.textAlign = "center";
+      header.style.marginBottom = "1rem";
+      header.textContent = "مباريات " + teamName;
+      matchesContainer.appendChild(header);
+
+      // البحث عبر جميع الجولات عن مباريات الفريق
+      for (const round in matchesData) {
+        matchesData[round].forEach(match => {
+          if(match.team1 === teamName || match.team2 === teamName) {
+            const team1Data = teamsData[match.team1];
+            const team2Data = teamsData[match.team2];
+            const matchCard = document.createElement('div');
+            matchCard.className = 'match-card';
+            matchCard.innerHTML = `
+              <div class="teams-container">
+                <div class="team">
+                  <img src="${team1Data.img}" alt="${match.team1}" onclick="showTeamMatches('${match.team1}')">
+                  <h3>${match.team1}</h3>
+                </div>
+                <span class="vs">VS</span>
+                <div class="team">
+                  <img src="${team2Data.img}" alt="${match.team2}" onclick="showTeamMatches('${match.team2}')">
+                  <h3>${match.team2}</h3>
+                </div>
+              </div>
+              <div class="match-time">${match.time}</div>
+            `;
+            matchesContainer.appendChild(matchCard);
+          }
+        });
+      }
+
+      // زر العودة لعرض المباريات للجولة المختارة سابقاً
+      const backButton = document.createElement('button');
+      backButton.textContent = "عودة";
+      backButton.style.display = "block";
+      backButton.style.margin = "20px auto";
+      backButton.style.padding = "10px 20px";
+      backButton.style.border = "none";
+      backButton.style.borderRadius = "5px";
+      backButton.style.background = "var(--light-blue)";
+      backButton.style.color = "var(--white)";
+      backButton.style.cursor = "pointer";
+      backButton.onclick = () => {
+        showMatches();
+        document.getElementById('round-selector').style.display = 'block';
+      }
+      matchesContainer.appendChild(backButton);
+    }
+
+    // عند تحميل الصفحة، عرض المباريات للجولة الافتراضية وتحديث الترتيب
+    window.onload = () => {
+      showMatches();
+      updateStandings();
+    }
+  </script>
 </body>
 </html>
