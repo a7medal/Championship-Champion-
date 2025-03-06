@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -263,7 +264,7 @@
         losses: 1,
         gf: 0,
         ga: 0,
-        img: "‪BAYER.png"
+        img: "BAYER.png"
       },
       "Cheikh": {
         points: 13,
@@ -323,7 +324,7 @@
       "Dibaj": {
         points: 3,
         goals: 3,
-        played:6,
+        played: 6,
         wins: 1,
         draws: 0,
         losses: 5,
@@ -383,11 +384,12 @@
         { team1: "Hammed", team2: "Hadj", time: "3 - 0" }
       ],
       7: [
-  { team1: "Wehab", team2: "Hadj", time: "17:30" },
-  { team1: "Cheikh", team2: "Hammed", time: "17:30" },
-  { team1: "Benyough", team2: "Dibaj", time: "22:30" },
-  { team1: "Cheikhna", team2: "Cheriv", time: "22:30" }
-]
+        { team1: "Wehab", team2: "Hadj", time: "17:30" },
+        { team1: "Cheikh", team2: "Hammed", time: "17:30" },
+        { team1: "Benyough", team2: "Dibaj", time: "22:30" },
+        { team1: "Cheikhna", team2: "Cheriv", time: "22:30" }
+      ]
+    };
 
     // دالة عرض المباريات للجولة المحددة
     function showMatches() {
@@ -457,7 +459,7 @@
       const matchesContainer = document.getElementById('matches');
       matchesContainer.innerHTML = '';
 
-      // إنشاء عنوان لعرض المباريات الخاصة بالفريق
+      // إنشاء عنوان لعرض مباريات الفريق
       const header = document.createElement('h2');
       header.style.textAlign = "center";
       header.style.marginBottom = "1rem";
@@ -491,7 +493,7 @@
         });
       }
 
-      // زر العودة لعرض المباريات للجولة المختارة سابقاً
+      // زر العودة لعرض مباريات الجولة المختارة سابقاً
       const backButton = document.createElement('button');
       backButton.textContent = "عودة";
       backButton.style.display = "block";
@@ -509,53 +511,41 @@
       matchesContainer.appendChild(backButton);
     }
 
-    // عند تحميل الصفحة، عرض المباريات للجولة الافتراضية وتحديث الترتيب
-    window.onload = () => {
+    // دالة لحساب فرق الأهداف تلقائيًا بناءً على نتائج المباريات
+    function computeGoalDifferences() {
+      // إعادة تعيين الأهداف المسجلة والمستقبلة لكل فريق
+      for (const team in teamsData) {
+        teamsData[team].gf = 0;
+        teamsData[team].ga = 0;
+      }
+
+      // نمط للتأكد من أن قيمة "time" هي نتيجة المباراة (مثال: "3 - 0")
+      const scorePattern = /^\d+\s*-\s*\d+$/;
+
+      // المرور على جميع الجولات لحساب الأهداف
+      for (const round in matchesData) {
+        matchesData[round].forEach(match => {
+          if(scorePattern.test(match.time)) {
+            const scores = match.time.split("-").map(s => parseInt(s.trim()));
+            if (scores.length === 2) {
+              // تحديث أهداف الفريق الأول والثاني
+              teamsData[match.team1].gf += scores[0];
+              teamsData[match.team1].ga += scores[1];
+
+              teamsData[match.team2].gf += scores[1];
+              teamsData[match.team2].ga += scores[0];
+            }
+          }
+        });
+      }
+    }
+
+    // عند تحميل الصفحة، نقوم بحساب فرق الأهداف ثم عرض المباريات وتحديث الترتيب
+    window.addEventListener("load", () => {
+      computeGoalDifferences();
       showMatches();
       updateStandings();
-    }
-  
-  // دالة لحساب فرق الأهداف تلقائياً
-  function computeGoalDifferences() {
-    // إعادة تعيين الأهداف المسجلة والمستقبلة لكل فريق
-    for (const team in teamsData) {
-      teamsData[team].gf = 0;
-      teamsData[team].ga = 0;
-    }
-
-    // نمط للتحقق من أن قيمة "time" تحتوي على نتيجة (مثال: "3 - 0")
-    const scorePattern = /^\d+\s*-\s*\d+$/;
-
-    // المرور على جميع الجولات والمباريات
-    for (const round in matchesData) {
-      matchesData[round].forEach(match => {
-        // إذا كانت قيمة "time" تتطابق مع النمط، إذن هي نتيجة المباراة
-        if(scorePattern.test(match.time)) {
-          // تقسيم النتيجة لاستخراج الأرقام
-          let scores = match.time.split("-").map(s => parseInt(s.trim()));
-          if (scores.length === 2) {
-            // تحديث أهداف الفريق الأول
-            teamsData[match.team1].gf += scores[0];
-            teamsData[match.team1].ga += scores[1];
-
-            // تحديث أهداف الفريق الثاني
-            teamsData[match.team2].gf += scores[1];
-            teamsData[match.team2].ga += scores[0];
-          }
-        }
-      });
-    }
-  }
-
-  // دوال عرض المباريات وتحديث الترتيب تبقى كما هي ...
-
-  // عند تحميل الصفحة، نقوم أولاً بحساب فرق الأهداف ثم عرض المباريات وتحديث الترتيب
-  window.onload = () => {
-    computeGoalDifferences();
-    showMatches();
-    updateStandings();
-  }
-
+    });
   </script>
 </body>
 </html>
