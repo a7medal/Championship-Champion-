@@ -1,5 +1,3 @@
-٣//<!DOCTYPE html>
-<html lang="ar">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -278,9 +276,9 @@
         img: "Barca.png"
       },
       "Benyough": {
-        points: 12,
+        points: 15,
         goals: 17,
-        played: 5,
+        played: 6,
         wins: 5,
         draws: 0,
         losses: 1,
@@ -516,6 +514,48 @@
       showMatches();
       updateStandings();
     }
+  
+  // دالة لحساب فرق الأهداف تلقائياً
+  function computeGoalDifferences() {
+    // إعادة تعيين الأهداف المسجلة والمستقبلة لكل فريق
+    for (const team in teamsData) {
+      teamsData[team].gf = 0;
+      teamsData[team].ga = 0;
+    }
+
+    // نمط للتحقق من أن قيمة "time" تحتوي على نتيجة (مثال: "3 - 0")
+    const scorePattern = /^\d+\s*-\s*\d+$/;
+
+    // المرور على جميع الجولات والمباريات
+    for (const round in matchesData) {
+      matchesData[round].forEach(match => {
+        // إذا كانت قيمة "time" تتطابق مع النمط، إذن هي نتيجة المباراة
+        if(scorePattern.test(match.time)) {
+          // تقسيم النتيجة لاستخراج الأرقام
+          let scores = match.time.split("-").map(s => parseInt(s.trim()));
+          if (scores.length === 2) {
+            // تحديث أهداف الفريق الأول
+            teamsData[match.team1].gf += scores[0];
+            teamsData[match.team1].ga += scores[1];
+
+            // تحديث أهداف الفريق الثاني
+            teamsData[match.team2].gf += scores[1];
+            teamsData[match.team2].ga += scores[0];
+          }
+        }
+      });
+    }
+  }
+
+  // دوال عرض المباريات وتحديث الترتيب تبقى كما هي ...
+
+  // عند تحميل الصفحة، نقوم أولاً بحساب فرق الأهداف ثم عرض المباريات وتحديث الترتيب
+  window.onload = () => {
+    computeGoalDifferences();
+    showMatches();
+    updateStandings();
+  }
+
   </script>
 </body>
 </html>
